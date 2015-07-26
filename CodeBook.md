@@ -6,3 +6,5 @@ The variable names are processed to contain only lowercase letters and omit "." 
 
 The final tidy set is saved in file "finalset.txt" inside the initial dataset folder.
 
+For full description of variable names check file features_info.txt from original data set. The script selects
+only mean() and std() measures to be included into final tidy set.
