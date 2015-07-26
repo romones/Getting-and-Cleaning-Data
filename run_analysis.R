@@ -1,7 +1,9 @@
 ## The script will process the Human Activity Recognition Using Smartphones Data Set 
-## to merge test and train data and produce a subset with the measurements on 
+## to produce a tidy data set containing average values for each variable from original data set
+## per every activity and every subject.
+## As a prelimiminary step test and train data are merged to produce a subset with the measurements on 
 ## the mean and standard deviation for each measurement of the initial data set.
-## Will structure the subset according to the tidy data set criteria.
+
 
 #Read general data
 features <- read.table("features.txt", stringsAsFactors = FALSE)
