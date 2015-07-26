@@ -24,24 +24,24 @@ merged_labels <- rbind(test_labels,train_labels)
 merged_set <- rbind(test_set,train_set)
 merged_subjects <- rbind(test_subjects,train_subjects)
 
-rm(list = ls()[grep("^(test|train).*$", ls(), perl = TRUE)]) #Clean Workspace
+rm(list = ls()[grep("^(test|train).*$", ls(), perl = TRUE)]) # Clean  workspace from some heavy data
 
 # Name activities properly
-activities$name <- gsub("[[:punct:]]","",activities$name)
+activities$name <- gsub("[[:punct:]]","",activities$name) # Remove the punctuation characters
 activities$name <- tolower(activities$name)
 
-activityname <- merge(merged_labels,activities, by=1)[,2]
+activityname <- merge(merged_labels,activities, by=1)[,2] # Make meaningfull activity names
 
 names(merged_set) <- features$name
 
-selectnames <- grep ("-mean\\(\\)|-std\\(\\)", features$name)
+selectnames <- grep ("-mean\\(\\)|-std\\(\\)", features$name) # Get the columns of interest to be used with subsetting later 
 
 #Tidy names
 names(merged_set) <- make.names(names = names(merged_set), unique = TRUE, allow_ = TRUE)
 
 merged_subset <- select(merged_set, selectnames)
 
-names(merged_subset) <- gsub("[[:punct:]]","",names(merged_subset))
+names(merged_subset) <- gsub("[[:punct:]]","",names(merged_subset)) # Remove any punctuation characters
 names(merged_subset) <- gsub("([[:upper:]])","-\\1",names(merged_subset)) # Add dashes for readability
 names(merged_subset) <- tolower(names(merged_subset))
 
